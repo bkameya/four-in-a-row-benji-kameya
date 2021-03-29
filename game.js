@@ -14,7 +14,7 @@ class Game {
         this.scoreboard();
         this.bestOfValue = bestOfValue;
         this.bestOfInput = bestOfInput;
-        this.currentPlayerName = ''
+        this.currentPlayerName = '';
     }
 
     // creates dynamic scoreboard and player objects
@@ -69,7 +69,6 @@ class Game {
         $board.empty();
         this.isRoundOver = false;
         this.isGameOver = false;
-        this.player = 'red'
 
         //for loop creates grid with rows and columns
         for (let row = 0; row < this.ROWS; row++) {
@@ -122,7 +121,7 @@ class Game {
             const $lastEmptyCell = findLastEmptyCell(col);
             $lastEmptyCell.removeClass(`empty next-${that.player}`);
             $lastEmptyCell.addClass(that.player);
-            $lastEmptyCell.data('player', that.player)
+            $lastEmptyCell.data('player', that.player);
 
             //checking for round winner, if so, add point to winner and checks if game is over? if not round over screen pops up
             let winner = that.checkForWinner(
@@ -143,25 +142,18 @@ class Game {
                     return;
                 }else{
                     $('.winner-window').removeClass('hidden');
-                    $('.winning-player').text(that.currentPlayerName)
+                    $('.winning-player').text(that.currentPlayerName);
                     $('.close-btn').click(function() {
                         $('.winner-window').addClass('hidden');
                         winner = false;
                     });
                 }
-
-                // if(this.player === 'red'){
-                //     this.onPlayerMove('black')
-                // }else if(this.player === 'black'){
-                //     this.onPlayerMove ('red')
-                // }
-
                 return;
             }
            //switches between players every turn
             that.currentPlayerName = (that.player === 'red') ? playerTwoName : playerOneName;
             that.player = (that.player === 'red') ? 'black' : 'red';
-            that.onPlayerMove()
+            that.onPlayerMove();
             $(this).trigger('mouseenter');
         });
     }
@@ -170,7 +162,7 @@ class Game {
     //checks if player gets best of 1, 3 or 5 respectively. returns winners name
     gameWinner() {
         if(window.player1.playerScore >= this.bestOfValue || window.player2.playerScore >= this.bestOfValue){
-            this.gameOver()
+            this.gameOver();
             if(this.player === 'red'){
                 return window.playerOneName;
             }else{
@@ -186,7 +178,7 @@ class Game {
         const that = this;
 
         function $getCell(i, j) {
-            return $(`.col[data-row='${i}'][data-col='${j}']`)
+            return $(`.col[data-row='${i}'][data-col='${j}']`);
         }
 
         function checkDirection(direction) {
@@ -228,11 +220,11 @@ class Game {
         }
 
         function checkVerticals() {
-            return checkWin({i: -1, j: 0}, {i: 1, j: 0})
+            return checkWin({i: -1, j: 0}, {i: 1, j: 0});
         }
 
         function checkHorizontals() {
-            return checkWin({i: 0, j: -1}, {i: 0, j: 1})
+            return checkWin({i: 0, j: -1}, {i: 0, j: 1});
         }
         return checkVerticals() || 
         checkHorizontals() ||
@@ -240,10 +232,18 @@ class Game {
         checkDiagonalTLtoBR();
     }
 
-    reset() {
-        this.createGrid()
-        this.onPlayerMove()
-        
+    //resets the board after a round and switches the first player
+    reset() {        
+
+        if(this.player === 'red'){
+            this.player = 'black';
+            this.currentPlayerName = window.playerOneName;
+        }else if(this.player === 'black'){
+            this.player = 'red';
+            this.currentPlayerName = window.playerTwoName;
+        }
+        this.createGrid();
+        this.onPlayerMove();
     }
 }
 

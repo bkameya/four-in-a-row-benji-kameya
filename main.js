@@ -16,11 +16,11 @@ $(document).ready(function(){
     });
     $('#best3').click(function() {
         bestOfInput = 3;
-        $('.best-of-value').text(bestOfInput)
+        $('.best-of-value').text(bestOfInput);
     });
     $('#best5').click(function() {
         bestOfInput = 5;
-        $('.best-of-value').text(bestOfInput)
+        $('.best-of-value').text(bestOfInput);
     });
  
     //Play game button initializes game creation and assigns player names
@@ -35,7 +35,7 @@ $(document).ready(function(){
         }else{
             $('#current-player').text(window.playerTwoName);
         }
-    }
+    };
     })    
 
     
