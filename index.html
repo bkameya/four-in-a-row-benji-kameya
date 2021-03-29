@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four in a Row</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="game.js"></script>
+
+</head>
+<body>
+    <div id="main-screen">
+        <header>
+            <h1>Four in a Row</h1>
+            <div class="header-buttons">
+                <h3 id="quit-btn" class="btn restart">Quit</h3>
+                <h3 id="help-btn" class="btn">Help</h3>
+            </div>
+        </header>
+        <main>
+            <div id="screen-wrapper">
+                    <div id="splash-screen" class="screen">
+                        <h2>How To Play:</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat qui natus, asperiores nulla iusto architecto repudiandae accusantium molestiae ab impedit totam, repellendus perferendis odit error dolores molestias. Libero, eius.</p>
+                        <h2>Enter Player Names:</h2>
+                        <label for="p1name">Player 1:</label>
+                        <input type="text" id="p1name" name="p1name"><br>
+                        <label for="p2name">Player 2:</label>
+                        <input type="text" id="p2name" name="p2name"><br>
+                        <h3>Best of:</h3>
+                        <div class="btn-group">
+                            <button id="best1" class="btn">1</button>
+                            <button id="best3" class="btn">3</button>
+                            <button id="best5" class="btn">5</button>
+                        </div>
+                        <h3 id="play-game-btn" class="btn">Play Game</h3>
+                        <div id="help-window-splash-screen" class="help">
+                            <h2>How To Set Up The Game</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, tenetur reiciendis hic repellat odit quo quas alias totam animi, fuga modi aut accusamus ea saepe. Deserunt distinctio perspiciatis temporibus neque!</p>
+                            <div class="help-btns">
+                                <div id="help-splash-close-btn" class="btn">
+                                        <p>Close</p>
+                                </div>
+                            </div>
+                                
+                        </div>
+                    </div>
+                    <div id="game-screen" class="screen">
+                        <h2><span id="current-player"></span>'s turn</h2>
+                        <div id="help-window-game-screen" class="help">
+                            <h2>How To Play</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, tenetur reiciendis hic repellat odit quo quas alias totam animi, fuga modi aut accusamus ea saepe. Deserunt distinctio perspiciatis temporibus neque!</p>
+                            <div id="help-game-close-btn" class="btn"><p>Close</p></div>
+                        </div>
+                        <div id="gameboard">
+                        </div>
+                        <div class="scoreboard">
+                        </div>
+                        <div class="winner-window popup hidden">
+                            <h2><span class="winning-player"></span> won this round</h2>
+                            <button class="btn close-btn">Close</button>
+                        </div>
+                        <div id="game-over-btn" class="btn">
+                            <h3>End Game</h3>
+                        </div>
+                    </div>
+                    <div id="game-over-screen" class="screen">
+                        <h2>Game Over</h2>
+                        <h3>Congratulations, <span class="winning-player"></span> You Won The Game!</h3>
+                        <h3><span class="winning-player"></span> Won <span class="rounds-won"></span> out of <span class="best-of"></span> rounds!</h3>
+                        <div id="game-over-quit-btn" class="btn restart">
+                            <h3>Quit</h3>
+                        </div>
+
+                    </div>
+                </div>
+            
+        </main>
+        <footer>            
+
+            <script src="navigation.js"></script>
+        </footer>
+    </div>
+</body>
+</html>

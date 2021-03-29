@@ -1,0 +1,144 @@
+body {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    margin: 1rem 0 0 0;
+}
+
+h2 {
+    margin: 0 0 1rem;
+}
+
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#main-screen {
+    max-width: 40rem;
+    height: 50rem;
+    margin: 0 auto;
+    background-color: #E5E5E5;
+    padding: 1rem;
+}
+
+.help {
+    background-color: #FCA311;
+    position: absolute;
+    width: 30rem;
+    top: 10.5rem;
+    z-index: 10;
+}
+
+.btn {
+    background-color: #14213D;
+    width: 6rem;
+    height: 2.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    border: solid 3px #000000;
+    border-radius: .5rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.btn:active {
+    background-color: #0f182b;
+}
+
+.btn:hover {
+    background-color: #1b2b4e;
+}
+
+#game-over-btn {
+    float: right;
+}
+
+#play-again-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.help {
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.help-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 30rem;
+    height: 30rem;
+    background-color: #ffebcd;
+    border: .5rem solid rgb(61, 57, 57);
+    border-radius: 2rem;
+    box-shadow: -1px 5px 5px 5px;
+}
+
+.popup button {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+
+.popup h2 {
+    font-size: 2.5rem;
+    margin: 5rem 0 0;
+}
+
+#gameboard {
+    background-color: rgb(100, 99, 175);
+    display: inline-block;
+    border: #14213D solid 2px;
+    padding: 1rem;
+    border-radius: 3rem;
+}
+
+.col{
+    width:70px;
+    height: 70px;
+    display: inline-block;
+    background-color: #E5E5E5;
+    border-radius: 50%;
+    border: #14213D solid 2px;
+    margin: 5px;
+}
+
+.col.empty {
+    cursor: pointer;
+}
+
+.next-red {
+    background-color: rgba(202, 25, 25, 0.473);
+}
+
+.next-black {
+    background-color: rgba(25, 16, 80, 0.377);
+}
+
+.red {
+    background-color: rgb(153, 51, 51);
+}
+
+.black {
+    background-color: #14213D;
+}
