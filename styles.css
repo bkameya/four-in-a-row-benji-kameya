@@ -80,6 +80,76 @@ h2 {
     display: none;
 }
 
+.btn-group {
+    text-align: center;
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+}
+
+.btn-group button {
+    background-color: #14213D;
+    border: 2px solid #000000;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-group button:not(:last-child) {
+border-right: none;
+}
+
+.btn-group:after {
+content: "";
+clear: both;
+display: table;
+}
+
+.btn-group button:hover {
+background-color: #1b2b4e;
+}
+
+.btn-group button:active {
+background-color: #0f182b;
+}
+
+#play-game-btn {
+    float: right;
+    width: 8rem;
+    background-color: #FCA311;
+    color: #000000;
+}
+
+#play-game-btn:hover {
+    background-color: #f8af38;
+}
+#play-game-btn:active {
+    background-color: #db9018;
+}
+
+.congrats {
+    background-color: #ffebcd;
+    width: 75%;
+    height: 10rem;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 2rem;
+}
+
+.scoreboard{
+    background-color: #FCA311;
+    height: 3rem;
+    width: 20rem;
+    margin: .5rem auto;
+    display: flex;
+    justify-content: space-around;
+}
+
 .popup {
     position: absolute;
     left: 50%;

@@ -17,7 +17,7 @@ class Game {
         this.currentPlayerName = ''
     }
 
-
+    // creates dynamic scoreboard and player objects
     scoreboard() {
         const that = this;
         const scoreboardObject = {
@@ -46,6 +46,8 @@ class Game {
             }
         };
         
+
+        //instantiation of players
         window.player1 = new Player(window.playerOneName);
         window.player2 = new Player(window.playerTwoName);
 
@@ -53,7 +55,7 @@ class Game {
 
     }
 
-
+    // sets isGameOver to true and switches screen to end screen. also feeds endscreen text
     gameOver() {
         this.isGameOver = true;
         switcher.screenSwitcher("game-over-screen");
@@ -61,12 +63,15 @@ class Game {
         $(".best-of").text(this.bestOfInput);
     }
 
+    //creates gameboard
     createGrid() {
         const $board = $(this.selector);
         $board.empty();
         this.isRoundOver = false;
         this.isGameOver = false;
         this.player = 'red'
+
+        //for loop creates grid with rows and columns
         for (let row = 0; row < this.ROWS; row++) {
             const $row = $('<div>')
                 .addClass('row');
@@ -82,6 +87,7 @@ class Game {
         }
     }
 
+    //creates event listeners that allow dropping of tiles and checks for a round or game over
     setupEventListeners() {
         const $board = $(this.selector);
         const that = this;
@@ -96,7 +102,7 @@ class Game {
             }
             return null;
         }
-
+        // creates the hover effects of empty columns
         $board.on('mouseenter', '.col.empty', function() {
             if (that.isRoundOver) return;
             const col = $(this).data('col');
@@ -108,6 +114,7 @@ class Game {
             $('.col').removeClass(`next-${that.player}`);
         });
 
+        // drops tiles onto last empty cell of a column
         $board.on('click', '.col.empty', function() {
             if (that.isRoundOver) return;
             const col = $(this).data('col');
@@ -117,6 +124,7 @@ class Game {
             $lastEmptyCell.addClass(that.player);
             $lastEmptyCell.data('player', that.player)
 
+            //checking for round winner, if so, add point to winner and checks if game is over? if not round over screen pops up
             let winner = that.checkForWinner(
                 $lastEmptyCell.data('row'), 
                 $lastEmptyCell.data('col')
@@ -150,8 +158,8 @@ class Game {
 
                 return;
             }
-           
-            that.currentPlayerName = (that.player === 'red') ? playerTwoName : playerOneName ;
+           //switches between players every turn
+            that.currentPlayerName = (that.player === 'red') ? playerTwoName : playerOneName;
             that.player = (that.player === 'red') ? 'black' : 'red';
             that.onPlayerMove()
             $(this).trigger('mouseenter');
@@ -159,7 +167,7 @@ class Game {
     }
 
 
-
+    //checks if player gets best of 1, 3 or 5 respectively. returns winners name
     gameWinner() {
         if(window.player1.playerScore >= this.bestOfValue || window.player2.playerScore >= this.bestOfValue){
             this.gameOver()
@@ -173,7 +181,7 @@ class Game {
         }
     }
 
-
+    //checks if players get 4 in a row
     checkForWinner(row, col) {  
         const that = this;
 
@@ -232,12 +240,6 @@ class Game {
         checkDiagonalTLtoBR();
     }
 
-    restart() {
-        this.createGrid()
-        this.onPlayerMove()
-        $('.scoreboard').empty()
-    }
-
     reset() {
         this.createGrid()
         this.onPlayerMove()
@@ -248,4 +250,4 @@ class Game {
 
 
 
-//tutorial that helped me https://www.youtube.com/watch?v=531FRc8e2Sk
+//tutorial that helped me: https://www.youtube.com/watch?v=531FRc8e2Sk

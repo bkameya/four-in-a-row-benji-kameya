@@ -16,7 +16,7 @@
         <header>
             <h1>Four in a Row</h1>
             <div class="header-buttons">
-                <h3 id="quit-btn" class="btn restart">Quit</h3>
+                <h3 id="quit-btn" class="btn">Quit</h3>
                 <h3 id="help-btn" class="btn">Help</h3>
             </div>
         </header>
@@ -24,22 +24,22 @@
             <div id="screen-wrapper">
                     <div id="splash-screen" class="screen">
                         <h2>How To Play:</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat qui natus, asperiores nulla iusto architecto repudiandae accusantium molestiae ab impedit totam, repellendus perferendis odit error dolores molestias. Libero, eius.</p>
+                        <p>Players will take turns dropping tiles down the board. First player to get four in a row in horizontally, vertically, and diagonally, wins the round! The first player to win the best of 1, 3, or 5 wins!</p>
                         <h2>Enter Player Names:</h2>
                         <label for="p1name">Player 1:</label>
                         <input type="text" id="p1name" name="p1name"><br>
                         <label for="p2name">Player 2:</label>
                         <input type="text" id="p2name" name="p2name"><br>
-                        <h3>Best of:</h3>
+                        <h3>Best of: <span class="best-of-value"></span></h3>
                         <div class="btn-group">
-                            <button id="best1" class="btn">1</button>
-                            <button id="best3" class="btn">3</button>
-                            <button id="best5" class="btn">5</button>
+                            <button id="best1">1</button>
+                            <button id="best3">3</button>
+                            <button id="best5">5</button>
                         </div>
                         <h3 id="play-game-btn" class="btn">Play Game</h3>
                         <div id="help-window-splash-screen" class="help">
                             <h2>How To Set Up The Game</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, tenetur reiciendis hic repellat odit quo quas alias totam animi, fuga modi aut accusamus ea saepe. Deserunt distinctio perspiciatis temporibus neque!</p>
+                            <p>Please enter player names, and choose a best of option. Then, press "play game" to start the game.</p>
                             <div class="help-btns">
                                 <div id="help-splash-close-btn" class="btn">
                                         <p>Close</p>
@@ -52,7 +52,7 @@
                         <h2><span id="current-player"></span>'s turn</h2>
                         <div id="help-window-game-screen" class="help">
                             <h2>How To Play</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, tenetur reiciendis hic repellat odit quo quas alias totam animi, fuga modi aut accusamus ea saepe. Deserunt distinctio perspiciatis temporibus neque!</p>
+                            <p>Players will take turns dropping tiles down the board. First player to get four in a row in horizontally, vertically, and diagonally, wins the round! The first player to win the best of 1, 3, or 5 wins!</p>
                             <div id="help-game-close-btn" class="btn"><p>Close</p></div>
                         </div>
                         <div id="gameboard">
@@ -69,9 +69,11 @@
                     </div>
                     <div id="game-over-screen" class="screen">
                         <h2>Game Over</h2>
-                        <h3>Congratulations, <span class="winning-player"></span> You Won The Game!</h3>
+                        <div class="congrats">
+                        <h2>Congratulations, <span class="winning-player"></span> You Won The Game!</h2>
                         <h3><span class="winning-player"></span> Won <span class="rounds-won"></span> out of <span class="best-of"></span> rounds!</h3>
-                        <div id="game-over-quit-btn" class="btn restart">
+                        </div>
+                        <div id="game-over-quit-btn" class="btn">
                             <h3>Quit</h3>
                         </div>
 
@@ -80,7 +82,6 @@
             
         </main>
         <footer>            
-
             <script src="navigation.js"></script>
         </footer>
     </div>
